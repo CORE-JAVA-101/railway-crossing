@@ -1,6 +1,7 @@
 package com.railway.app.dao;
 
 import com.railway.app.model.RailwayCrossing;
+import com.railway.config.DatabaseProvider;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,8 +15,8 @@ public class RailwayCrossingDAO {
 
    private Connection connection;
    
-   public RailwayCrossingDAO(Connection connection) {
-      this.connection = connection;
+   public RailwayCrossingDAO() {
+      connection = DatabaseProvider.getConnection();
    }
 
    public boolean insertRailwayCrossing(RailwayCrossing crossing) {
@@ -34,6 +35,8 @@ public class RailwayCrossingDAO {
          return rowsAffected > 0;
       } catch (SQLException e) {
          e.printStackTrace();
+      }finally {
+         DatabaseProvider.close(connection);
       }
       
       return false;
@@ -62,6 +65,9 @@ public class RailwayCrossingDAO {
       } catch (SQLException e) {
          e.printStackTrace();
       }
+      finally {
+         DatabaseProvider.close(connection);
+      }
 
       return crossings;
    }
@@ -77,7 +83,7 @@ public class RailwayCrossingDAO {
       } catch (SQLException e) {
          e.printStackTrace();
       } finally {
-
+         DatabaseProvider.close(connection);
       }
    }
 }

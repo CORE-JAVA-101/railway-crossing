@@ -10,3 +10,11 @@ VALUES
     ('Railway Crossing 8', 'Address 8', 'Landmark 8', '2023-08-01 11:00:00', 'Platform 8', 'Closed'),
     ('Railway Crossing 9', 'Address 9', 'Landmark 9', '2023-09-01 15:20:00', 'Platform 9', 'Open'),
     ('Railway Crossing 10', 'Address 10', 'Landmark 10', '2023-10-01 17:30:00', 'Platform 10', 'Closed');
+
+
+INSERT INTO users (username, email, password, role)
+    VALUES
+        ('john_doe', 'john@example.com', 'password123', 'GOVT'),
+        ('jane_smith', 'jane@example.com', 'securepass', 'PUBLIC'),
+        ('bob_jackson', 'bob@example.com', 'pass1234', 'GOVT');
+

@@ -12,43 +12,34 @@
     <div class="container">
         <%@ include file="header.jsp" %>
         <h2>List of Railway Crossings</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Landmark</th>
-                    <th>Train Schedule</th>
-                    <th>Platform In Charge</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (RailwayCrossing crossing : (List<RailwayCrossing>)request.getAttribute("crossings")) { %>
-                <tr>
-                    <td><%= crossing.getId() %></td>
-                    <td><%= crossing.getName() %></td>
-                    <td><%= crossing.getAddress() %></td>
-                    <td><%= crossing.getLandmark() %></td>
-                    <td><%= crossing.getTrainSchedule() %></td>
-                    <td><%= crossing.getPlatformInCharge() %></td>
-                    <td><%= crossing.getStatus() %></td>
-                    <td>
-                        <!-- <a href="railway-crossing?id=<%= crossing.getId() %>" class="btn btn-primary">Delete</a> -->
 
-                        <form action="<%= baseUrl %>/public" method="post"> <!-- Assuming deleteRecord is the servlet handling the delete action -->
-                            <input type="hidden" name="action" value="favourite" />
+         <% for (RailwayCrossing crossing : (List<RailwayCrossing>)request.getAttribute("crossings")) { %>
 
-                            <input type="hidden" name="id" value="<%= crossing.getId() %>">
-                            <button type="submit" class="btn btn-danger">Favourite</button>
-                        </form>
-                    </td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
+        <ul class="list-group">
+            <li class="list-group-item">ID: <%= crossing.getId() %>
+            </li>
+            <li class="list-group-item">Name: <%= crossing.getName() %>
+            </li>
+            <li class="list-group-item">Address: <%= crossing.getAddress() %>
+            </li>
+            <li class="list-group-item">Landmark: <%= crossing.getLandmark() %>
+            </li>
+            <li class="list-group-item">Train Schedule: <%= crossing.getTrainSchedule() %>
+            </li>
+            <li class="list-group-item">Platform In Charge: <%= crossing.getPlatformInCharge() %>
+            </li>
+            <li class="list-group-item">Status: <%= crossing.getStatus() %>
+            </li>
+        </ul>
+        <form action="<%= baseUrl %>/public" method="post">
+            <!-- Assuming deleteRecord is the servlet handling the delete action -->
+            <input type="hidden" name="action" value="favourite" />
+        
+            <input type="hidden" name="id" value="<%= crossing.getId() %>">
+            <button type="submit" class="btn btn-danger">Favourite</button>
+        </form>
+        <hr />
+          <% } %>
     </div>
 </body>
 </html>

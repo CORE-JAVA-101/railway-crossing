@@ -12,37 +12,31 @@
     <div class="container">
         <%@ include file="header.jsp" %>
         <h2>List of Favourite Railway Crossings</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Landmark</th>
-                    <th>Train Schedule</th>
-                    <th>Platform In Charge</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (RailwayCrossing crossing : (List<RailwayCrossing>)request.getAttribute("crossings")) { %>
-                <tr>
-                    <td><%= crossing.getId() %></td>
-                    <td><%= crossing.getName() %></td>
-                    <td><%= crossing.getAddress() %></td>
-                    <td><%= crossing.getLandmark() %></td>
-                    <td><%= crossing.getTrainSchedule() %></td>
-                    <td><%= crossing.getPlatformInCharge() %></td>
-                    <td><%= crossing.getStatus() %></td>
-                    <td>
-                        <a href="<%= baseUrl %>/public?id=<%= crossing.getId() %>&action=delete_favorite"
-                         class="btn btn-primary">Delete</a>
-                    </td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
+
+        <% for (RailwayCrossing crossing : (List<RailwayCrossing>)request.getAttribute("crossings")) { %>
+        
+        <ul class="list-group">
+            <li class="list-group-item">ID: <%= crossing.getId() %>
+            </li>
+            <li class="list-group-item">Name: <%= crossing.getName() %>
+            </li>
+            <li class="list-group-item">Address: <%= crossing.getAddress() %>
+            </li>
+            <li class="list-group-item">Landmark: <%= crossing.getLandmark() %>
+            </li>
+            <li class="list-group-item">Train Schedule: <%= crossing.getTrainSchedule() %>
+            </li>
+            <li class="list-group-item">Platform In Charge: <%= crossing.getPlatformInCharge() %>
+            </li>
+            <li class="list-group-item">Status: <%= crossing.getStatus() %>
+            </li>
+        </ul>
+
+        <a href="<%= baseUrl %>/public?id=<%= crossing.getId() %>&action=delete_favorite"
+            class="btn btn-primary">Delete</a>
+
+        <% } %>
+    
     </div>
 </body>
 </html>

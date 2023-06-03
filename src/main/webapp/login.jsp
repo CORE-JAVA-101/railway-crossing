@@ -1,3 +1,6 @@
+<%
+String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +30,7 @@
     <div class="center-container">
         <div class="login-form">
             <h1 class="text-center">Railway Crossing - Login</h1>
-            <form action="login_process.php" method="POST" class="mt-4">
+            <form action="<%= baseUrl %>/authenticate" method="POST" class="mt-4">
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" class="form-control" required>

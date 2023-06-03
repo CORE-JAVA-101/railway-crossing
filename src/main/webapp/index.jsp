@@ -1,3 +1,6 @@
+<%
+String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +30,7 @@
     <div class="center-container">
         <div class="registration-form">
             <h1 class="text-center">Railway Crossing</h1>
-            <form action="registration_process.php" method="POST" class="mt-4">
+            <form action="<%= baseUrl %>/register" method="POST" class="mt-4">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" class="form-control" required>

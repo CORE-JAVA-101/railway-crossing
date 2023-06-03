@@ -7,7 +7,7 @@ import jakarta.servlet.ServletContextListener;
 
 public class AppStartupListener implements ServletContextListener {
   public void contextInitialized(ServletContextEvent sce) {
-   FlywayRunner.run();
+//   FlywayRunner.run();
   }
 
   public void contextDestroyed(ServletContextEvent sce) {

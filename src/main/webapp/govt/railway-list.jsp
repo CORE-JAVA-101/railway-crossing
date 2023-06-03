@@ -36,7 +36,7 @@
                     <td><%= crossing.getPlatformInCharge() %></td>
                     <td><%= crossing.getStatus() %></td>
                     <td>
-                        <a href="" class="btn btn-primary">Update</a>
+                        <a href="<%= baseUrl %>/govt?action=edit&id=<%= crossing.getId() %>" class="btn btn-primary">Update</a>
                         <!-- <a href="railway-crossing?id=<%= crossing.getId() %>" class="btn btn-primary">Delete</a> -->
                    
                         <form action="<%= baseUrl %>/govt" method="post"> <!-- Assuming deleteRecord is the servlet handling the delete action -->

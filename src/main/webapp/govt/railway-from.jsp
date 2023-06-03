@@ -72,14 +72,27 @@
 
           <div class="form-group">
             <label for="status">Status:</label>
+            <br/>
             <input
-              type="text"
-              class="form-control"
-              id="status"
+              type="radio"
+
+              id="status1"
               name="status"
+              value="Open"
               required
-            />
+            /> Open
+            <br/>
+
+             <input
+                   type="radio"
+
+                          id="status1"
+                          name="status"
+                          value="Close"
+                          required
+                        /> Close
           </div>
+
 
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

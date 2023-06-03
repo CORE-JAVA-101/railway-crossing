@@ -79,17 +79,32 @@
             />
           </div>
 
-          <div class="form-group">
-            <label for="status">Status:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="status"
-              name="status"
-              value="<%= crossing.getStatus() %>"
-              required
-            />
-          </div>
+
+           <div class="form-group">
+                     <label for="status">Status:</label>
+                     <br/>
+                     current status: <bold><%= crossing.getStatus() %> </bold>
+                     <br/>
+                     <input
+                       type="radio"
+
+                       id="status1"
+                       name="status"
+                       value="Open"
+                       required
+                     /> Open
+                     <br/>
+
+                      <input
+                            type="radio"
+
+                                   id="status1"
+                                   name="status"
+                                   value="Close"
+                                   required
+                                 /> Close
+                   </div>
+
 
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
